@@ -17,18 +17,22 @@ body {
     transition: background-color 0.5s, color 0.5s;
 }
 
+
+/* ELEMENTS */
+
 header {
     background: var(--text-color);
     transition: background-color 0.5s, color 0.5s;
     width: 100vw;
     height: 80px;
+    opacity: 1;
     z-index: 5;
     position: sticky;
     top: 0;
 }
 
 header .menuButtonOpen,
-#lateralMenu button {
+.menuButtonClose {
     height: 34px;
     width: 60px;
     position: absolute;
@@ -40,12 +44,31 @@ header .menuButtonOpen,
     color: var(--text-color);
     font-size: 1.8em;
     line-height: 34px;
-    transition: left 0.5s;
+    transform: scale(1);
+    transition: left 0.5s, transform 1s;
     cursor: pointer;
 }
 
 header .buttonMenuOpenHide {
     left: -100px;
+    transform: scale(0.1);
+}
+
+header .logo {
+    height: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.lateralMenuClosed button {
+    transform: scale(0.1);
+}
+
+.lateralMenuOpen button {
+    transform: scale(1);
+
 }
 
 
@@ -55,9 +78,10 @@ header .buttonMenuOpenHide {
     position: absolute;
     top: 0;
     background: var(--text-color);
-    transition: background-color 0.5s, color 0.5s, left 0.5s;
+    transition: background-color 0.5s, color 0.5s, left 0.5s linear;
     z-index: 10;
 }
+
 
 .lateralMenuOpen {
     left: 0;
@@ -65,6 +89,48 @@ header .buttonMenuOpenHide {
 
 .lateralMenuClosed {
     left: -100%;
+}
+
+nav.menuDesktop {
+    width: 96%;
+    margin: auto;
+    margin-top: 80px;
+
+    color: var(--bg-color);
+    z-index: 20;
+}
+
+nav.menuDesktop ul {
+    list-style: none;
+    padding: 20px;
+    margin: 20px auto;
+    transform: scale(1);
+    transition: transform 0.2s;
+    box-shadow: 0px 4px 32px 4px rgba(255, 255, 255, 0.5);
+    border-radius: 25px;
+}
+
+nav.menuDesktop ul:hover {
+    box-shadow: 0px 2px 16px 2px rgba(255, 255, 255, 0.75);
+    transform: scale(0.96);
+    transition: transform 0.2s;
+
+}
+
+nav.menuDesktop li {
+    text-align: center;
+    width: 100%;
+    font-size: 1.8em;
+    line-height: 40px;
+}
+
+/* MAIN */
+main {
+    width: 100vw;
+    height: calc(100vh - 80px);
+    position: absolute;
+
+
 }
 
 /*TOGGLE DARK LIGHT */
@@ -120,10 +186,15 @@ input:checked+.slider:before {
     border-radius: 50%;
 }
 
+/* PAGES */
+
 
 h1 {
     text-align: center;
 }
+
+
+
 
 /* + 768px */
 
