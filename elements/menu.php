@@ -1,4 +1,4 @@
-<nav class="menuDesktop">
+<nav class="menu">
             <ul>
                 <li>Accueil</li>
                 <li>Jeux solo</li>

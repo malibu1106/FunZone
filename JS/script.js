@@ -12,6 +12,7 @@ function openMenu() {
     if (lateralMenu.classList.contains("lateralMenuClosed")) {
         lateralMenu.classList.replace("lateralMenuClosed", "lateralMenuOpen");
         menuButtonOpen.classList.replace("buttonMenuOpenDisplay", "buttonMenuOpenHide");
+        mainPositionAdjust();
     }
 }
 
@@ -19,6 +20,15 @@ function closeMenu() {
     if (lateralMenu.classList.contains("lateralMenuOpen")) {
         lateralMenu.classList.replace("lateralMenuOpen", "lateralMenuClosed");
         menuButtonOpen.classList.replace("buttonMenuOpenHide", "buttonMenuOpenDisplay")
+        mainPositionAdjust();
+    }
+}
+function mainPositionAdjust() {
+    if (windowWidth >= 1600 && lateralMenu.classList.contains("lateralMenuOpen")) {
+        document.getElementsByTagName("main")[0].style.left = "384px";
+    }
+    else if (windowWidth >= 1000 && lateralMenu.classList.contains("lateralMenuClosed")) {
+        document.getElementsByTagName("main")[0].style.left = "0";
     }
 }
 
@@ -31,10 +41,10 @@ function refreshWindowWidth() {
     windowWidth = window.innerWidth;
 }
 
-setInterval(refreshWindowWidth, 2500);
+setInterval(refreshWindowWidth, 100);
 
 document.addEventListener('click', function (event) {
-    if (event.clientX > menuWidth && event.clientY > headerWidth && windowWidth >= 768 && lateralMenu.classList.contains("lateralMenuOpen")) {
+    if (event.clientX > menuWidth && event.clientY > headerWidth && windowWidth >= 768 && windowWidth < 1600 && lateralMenu.classList.contains("lateralMenuOpen")) {
         closeMenu();
     }
 });
