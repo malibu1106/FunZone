@@ -1,0 +1,135 @@
+:root {
+    --bg-color: #f3f3f3;
+    --text-color: #627d2e;
+}
+
+[data-theme="dark"] {
+    --bg-color: #627d2e;
+    --text-color: #f3f3f3;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.5s, color 0.5s;
+}
+
+header {
+    background: var(--text-color);
+    transition: background-color 0.5s, color 0.5s;
+    width: 100vw;
+    height: 80px;
+    z-index: 5;
+    position: sticky;
+    top: 0;
+}
+
+header .menuButtonOpen,
+#lateralMenu button {
+    height: 34px;
+    width: 60px;
+    position: absolute;
+    left: 23px;
+    top: 23px;
+    border-radius: 34px;
+    border: none;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-size: 1.8em;
+    line-height: 34px;
+    transition: left 0.5s;
+    cursor: pointer;
+}
+
+header .buttonMenuOpenHide {
+    left: -100px;
+}
+
+
+#lateralMenu {
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    background: var(--text-color);
+    transition: background-color 0.5s, color 0.5s, left 0.5s;
+    z-index: 10;
+}
+
+.lateralMenuOpen {
+    left: 0;
+}
+
+.lateralMenuClosed {
+    left: -100%;
+}
+
+/*TOGGLE DARK LIGHT */
+.switch {
+    position: absolute;
+    right: 23px;
+    top: 23px;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--bg-color);
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: var(--text-color);
+    transition: .4s;
+}
+
+input:checked+.slider {
+    background: var(--bg-color);
+}
+
+input:checked+.slider:before {
+    transform: translateX(26px);
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+
+h1 {
+    text-align: center;
+}
+
+/* + 768px */
+
+@media screen and (min-width: 768px) {
+
+    #lateralMenu {
+        width: 384px;
+    }
+}
