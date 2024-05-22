@@ -25,6 +25,11 @@ body {
     transition: background-color 0.5s, color 0.5s;
 }
 
+a {
+    text-decoration: none;
+    color: unset;
+}
+
 
 /* ELEMENTS */
 
@@ -48,7 +53,7 @@ header .menuButtonOpen,
     top: 23px;
     border-radius: 34px;
     border: none;
-    background: var(--bgColor);
+    background: var(--bodyColor);
     color: var(--textColor);
     font-size: 1.8em;
     line-height: 34px;
@@ -121,7 +126,6 @@ nav.menu ul:hover {
     box-shadow: 0px 2px 16px 2px var(--shadow-color-hover);
     transform: scale(0.96);
     transition: transform 0.2s;
-
 }
 
 nav.menu li {
@@ -131,10 +135,14 @@ nav.menu li {
     line-height: 40px;
 }
 
+nav.menu a:hover {
+    color: var(--bodyColor);
+}
+
 /* MAIN */
 main {
     width: 96vw;
-    background-color: var(--lightColor2);
+    background-color: var(--bgColor);
     position: absolute;
     left: 0;
     right: 0;
@@ -165,7 +173,7 @@ main {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: var(--lightColor);
+    background-color: var(--bodyColor);
     transition: .4s;
 }
 
@@ -176,12 +184,12 @@ main {
     width: 26px;
     left: 4px;
     bottom: 4px;
-    background-color: var(--lightColor2);
+    background-color: var(--bgColor);
     transition: .4s;
 }
 
 input:checked+.slider {
-    background: var(--bg-color);
+    background: var(--textColor);
 }
 
 input:checked+.slider:before {

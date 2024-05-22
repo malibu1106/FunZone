@@ -13,7 +13,9 @@
 <body>    
     <?php 
     include 'elements/headerAndMenu.php';
+    include 'elements/connexion.php';
     include 'pages/accueil.php';
+    
 ?>
 
 </body>
