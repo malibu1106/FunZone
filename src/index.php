@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -10,11 +11,23 @@
     <title>FunZone</title>
 </head>
 
-<body>    
+<body>
+    <!-- <div id="message">Test</div>     -->
     <?php 
+    
+    if (isset($_SESSION['message'])){
+        echo $_SESSION['message'];
+        $_SESSION['message'] ="";        
+    }
     include 'elements/headerAndMenu.php';
-    include 'elements/connexion.php';
-    include 'pages/accueil.php';
+    include 'elements/connexion_bdd.php';
+    if (isset($_GET['page']) && $_GET['page'] === "inscription"){
+        include 'pages/signup_form.php';}
+    elseif (isset($_GET['page']) && $_GET['page'] === "login"){
+        include 'pages/login_form.php';}
+    else{
+        include 'pages/accueil.php';}
+    
     
 ?>
 
