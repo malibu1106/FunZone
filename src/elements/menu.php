@@ -7,7 +7,7 @@
                     <li><a href="index.php?page=inscription">Inscription</a></li>';}
                 else{
                     echo 'Bonjour ' . $_SESSION['user'];
-                    echo '<li><a href="#">Profil</a></li>
+                    echo '<li><a href="index.php?page=profil">Profil</a></li>
                 <li><a href="../pages/logoff.php">Déconnexion</a></li>';}?>
             </ul>
             <ul>

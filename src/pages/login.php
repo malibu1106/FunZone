@@ -32,10 +32,10 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['email']) && !empty($_
         header('Location: ../index.php');}
         else {
             $_SESSION["message"] = "<div id='message' class='red'>Adresse email ou mot de passe incorrect !</div>";
-            header('Location: ../index.php');}
+            header('Location: ../index.php?page=login');}
     } else {
         $_SESSION["message"] = "<div id='message' class='red'>Adresse email ou mot de passe incorrect !</div>";
-        header('Location: ../index.php');}
+        header('Location: ../index.php?page=login');}
 
 }
 ?>

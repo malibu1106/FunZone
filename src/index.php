@@ -1,4 +1,5 @@
 <?php session_start();?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -17,7 +18,10 @@
     
     if (isset($_SESSION['message'])){
         echo $_SESSION['message'];
-        $_SESSION['message'] ="";        
+        $_SESSION['message'] ="<div id='message'></div>";        
+    }
+    else{
+        $_SESSION['message'] ="<div id='message'></div>";
     }
     include 'elements/headerAndMenu.php';
     include 'elements/connexion_bdd.php';
@@ -25,6 +29,8 @@
         include 'pages/signup_form.php';}
     elseif (isset($_GET['page']) && $_GET['page'] === "login"){
         include 'pages/login_form.php';}
+    elseif (isset($_GET['page']) && $_GET['page'] === "profil"){
+        include 'pages/profil.php';}
     else{
         include 'pages/accueil.php';}
     

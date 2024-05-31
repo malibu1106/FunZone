@@ -42,15 +42,11 @@ a {
     font-size: 1.5em;
     text-align: center;
     font-weight: 600;
-    animation: message 3s forwards;
+    animation: message 4s forwards;
 }
 
 @keyframes message {
     0% {
-        opacity: 0%;
-    }
-
-    20% {
         opacity: 100%;
     }
 
@@ -200,9 +196,25 @@ main h1 {
 main form {
     display: flex;
     flex-direction: column;
-    max-width: 450px;
+    width: 450px;
     gap: 20px;
     margin: 50px auto;
+}
+
+#password_input_containeur {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#password_input_containeur img {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+#password_input_containeur input {
+    width: 400px;
 }
 
 main input {
@@ -219,6 +231,8 @@ main input[type="submit"] {
     margin: auto;
     display: block;
 }
+
+
 
 .conteneur-jeu {
     margin: auto;

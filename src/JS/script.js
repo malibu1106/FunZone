@@ -62,33 +62,36 @@ function toggleTheme() {
         document.documentElement.removeAttribute('data-theme');
     }
 }
-// AUTO DARK OR LIGHT
-// if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-//     document.documentElement.setAttribute('data-theme', 'dark');
-// }
 
 
-// DEBUG BORDER COLORS
+// INSCRIPTION BORDER RED IF EMAIL OR PSEUDO ALREADY USED
 
-// Add colored borders to all elements
-// An array of color values to be used for the borders
-// let colorsList = ['red', 'blue', 'green', 'yellow', 'purple', 'orange', 'hotpink', 'black'];
-// // Select all HTML elements on the page
-// let elements = document.getElementsByTagName("*");
-// // Define the border size with a space at the end for concatenation
-// let borderSize = "2px ";
-// // Define the border style with a space at the end for concatenation
-// let borderStyle = "solid ";
-// // Initialize the index to 0, used to cycle through the colorsList array
-// let index = 0;
-// // Loop through each element in the elements collection
-// for (let i = 0; i < elements.length; i++) {
-//     // Set the border style of the current element using the current border style, size, and color
-//     elements[i].style.border = borderStyle + borderSize + colorsList[index];
-//     // Increment the index to move to the next color
-//     index++;
-//     // Reset the index to 0 if it reaches the end of the colorsList array
-//     if (index == colorsList.length) {
-//         index = 0;
-//     }
-// }
+let message = document.getElementById('message');
+let pseudoInputBorder = document.getElementById('pseudo');
+let emailInputBorder = document.getElementById('email');
+
+if (message) {
+    if (message.innerHTML === "Ce pseudo est déjà utilisé !") {
+        pseudoInputBorder.style.boxShadow = "inset 0px 0px 0px 3px #f00";
+    }
+    else if (message.innerHTML === "Cette adresse email est déjà utilisée !") {
+        emailInputBorder.style.boxShadow = "inset 0px 0px 0px 3px #f00";
+    }
+}
+
+// PASSWORD SHOW/HIDE
+let logoShowPassword = document.getElementById('showPasswordImage');
+let passwordInput = document.getElementById('password');
+if (logoShowPassword) {
+    logoShowPassword.addEventListener("click", showOrHidePassword)
+}
+function showOrHidePassword() {
+    if (passwordInput.type == "text") {
+        passwordInput.type = "password";
+        logoShowPassword.src = "../images/showPassword.png";
+    }
+    else {
+        passwordInput.type = "text";
+        logoShowPassword.src = "../images/hidePassword.png";
+    }
+}

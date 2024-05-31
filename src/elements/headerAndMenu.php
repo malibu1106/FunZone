@@ -2,7 +2,7 @@
     <header>
         <button class="menuButtonOpen buttonMenuOpenDisplay">☰</button>
 
-        <img class="logo" src="images/logo.png" alt="Logo FunZone">
+        <a href="index.php"><img class="logo" src="images/logo.png" alt="Logo FunZone"></a>
         
         <label class="switch">
             <input type="checkbox" id="themeToggle">
