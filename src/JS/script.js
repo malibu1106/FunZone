@@ -26,9 +26,11 @@ function closeMenu() {
 function mainPositionAdjust() {
     if (windowWidth >= 1600 && lateralMenu.classList.contains("lateralMenuOpen")) {
         document.getElementsByTagName("main")[0].style.left = "384px";
+        document.getElementById("message").style.left = "384px";
     }
     else if (windowWidth >= 1000 && lateralMenu.classList.contains("lateralMenuClosed")) {
         document.getElementsByTagName("main")[0].style.left = "0";
+        document.getElementById("message").style.left = "0";
     }
 }
 

@@ -37,9 +37,10 @@ a {
     margin: auto;
     top: 80px;
     color: var(--titleColor);
-    height: 40px;
     line-height: 40px;
-    font-size: 1.5em;
+    font-size: 1.2em;
+    word-spacing: -0.1cap;
+    letter-spacing: -0.05cap;
     text-align: center;
     font-weight: 600;
     animation: message 4s forwards;
@@ -311,7 +312,18 @@ h1 {
     text-align: center;
 }
 
+/* PROFIL */
+.profil_prez {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    ;
+}
 
+.avatar_image {
+    border-radius: 50%;
+    height: 150px;
+}
 
 
 /* + 768px */

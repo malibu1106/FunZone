@@ -28,6 +28,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['email']) && !empty($_
      if (password_verify($password, $hashed_password)) {
         $_SESSION["message"] = "<div id='message' class='green'>Connexion réussie !</div>";
         $_SESSION["user"] = $user['first_name'];
+        $_SESSION["pseudo"] = $user['pseudo'];
         $_SESSION["userid"] = $user['id'];
         header('Location: ../index.php');}
         else {
