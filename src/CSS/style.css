@@ -313,16 +313,13 @@ h1 {
 }
 
 /* PROFIL */
-.profil_prez {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    ;
-}
+.profile_prez {}
 
 .avatar_image {
     border-radius: 50%;
-    height: 150px;
+    height: 100px;
+    margin: auto;
+    display: block;
 }
 
 

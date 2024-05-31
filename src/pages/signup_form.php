@@ -27,7 +27,7 @@ $date_of_birth = "";
         <input type="email" required name="email" id="email" placeholder="Votre adresse email" value="<?= $email?>">
         <div id="password_input_containeur"><input type="password" required name="password" id="password" class="passwordInputSignup" placeholder="Votre mot de passe" value="<?= $password?>"><img id="showPasswordImage" src="../images/showPassword.png"></div>
         <input type="date" required name="date_of_birth" id="date_of_birth" min="1900-01-01" max="2035-01-01" value="<?= $date_of_birth?>">
-        <input type="submit" value="Valider">
+        <input id="signup_submit" type="submit" value="Valider">
     </form>
 </main>
 <script src="../JS/signup_form.js" defer></script>
