@@ -218,7 +218,9 @@ main form {
     width: 400px;
 }
 
-main input {
+main input,
+button,
+label {
     height: 40px;
     text-align: center;
     font-size: 1.2em;
@@ -226,7 +228,9 @@ main input {
     border: none;
 }
 
-main input[type="submit"] {
+main input[type="submit"],
+button,
+label {
     cursor: pointer;
     width: 225px;
     margin: auto;
@@ -313,13 +317,20 @@ h1 {
 }
 
 /* PROFIL */
-.profile_prez {}
+.profile_avatar {
+    display: flex;
+    justify-content: space-around;
+}
+
+.avatar_buttons_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
 
 .avatar_image {
     border-radius: 50%;
-    height: 100px;
-    margin: auto;
-    display: block;
+    height: 128px;
 }
 
 

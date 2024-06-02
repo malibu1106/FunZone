@@ -16,11 +16,23 @@ $user = $query->fetch(PDO::FETCH_ASSOC);
 
 require_once("elements/close_bdd.php");
 ?>
-<main>
+<main class="profile">
     <h1>Mon profil</h1>
+        <div class="profile_avatar">
 
-        
-        <img class="avatar_image" src="storage/avatars/<?=$user['avatar_filename']?>">
+    <?php 
+if (!empty($user['avatar_filename'])) {
+    echo '<img class="avatar_image" src="storage/avatars/' . $user['avatar_filename'] . '">';
+} else {
+    echo '<img class="avatar_image" src="storage/avatars/default.png">';
+}
+?>
+            <div class="avatar_buttons_container">
+                <button>Changer l'avatar</button>            
+                <button>Supprimer l'avatar</button>
+            </div>
+        </div>  
+
         <form action="pages/edit_profile.php" method="POST">
             <input type="hidden" name="id" id="id" value="<?=$user['id']?>">
             <input type="text" required name="first_name" id="first_name" placeholder="Prénom" value="<?=$user['first_name']?>">
@@ -31,10 +43,28 @@ require_once("elements/close_bdd.php");
             <input type="submit" value="Éditer mes informations">
         </form>
 
-        <form action="pages/edit_password.php" method="POST">
+
+
+
+
+        <?php
+        if (isset($_POST['password'])){
+            include 'pages/edit_password_form.php';
+        }
+        else{
+            echo '<form action="index.php?page=profil" method="POST">
             <input type="submit" value="Changer mot de passe">
-            <input type="hidden" id="id" name="id" value="<?=$user['id']?>">
-        </form>
+            <input type="hidden" id="password" name="password" value="password">
+            </form>';
+        }
+?>
+
+
+
+
+
+
+
         
         <?php
         if (isset($_POST['delete'])){

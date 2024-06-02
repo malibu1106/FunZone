@@ -1,7 +1,6 @@
 const specialCharacterPattern = /[!@#$%^&*(),.?":{}|<>]/;
 let actualEmail = document.getElementById('email').value;
 let actualPseudo = document.getElementById('pseudo').value;
-console.log(actualEmail);
 document.getElementById('email').addEventListener('input', function () {
     const email = this.value;
     if (email.length > 0) {
@@ -69,3 +68,6 @@ document.getElementById('pseudo').addEventListener('input', function () {
         xhr2.send('pseudo=' + encodeURIComponent(pseudo));
     }
 });
+
+
+
