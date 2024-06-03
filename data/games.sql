@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : db
--- Généré le : lun. 03 juin 2024 à 11:59
+-- Généré le : lun. 03 juin 2024 à 13:14
 -- Version du serveur : 8.0.37
 -- Version de PHP : 8.2.8
 
@@ -39,7 +39,8 @@ CREATE TABLE `games` (
 --
 
 INSERT INTO `games` (`id`, `name`, `location`, `image_filename`) VALUES
-(1, 'Color Simon', '../storage/games/color-simon/', '../storage/images/games/color-simon.png');
+(1, 'Color Memo', '../storage/games/color-memo/', '../storage/games/color-memo/color-memo.png'),
+(2, 'Crack The Code', '../storage/games/crack-the-code/\r\n', '../storage/games/crack-the-code/crack-the-code.png');
 
 --
 -- Index pour les tables déchargées
@@ -59,7 +60,7 @@ ALTER TABLE `games`
 -- AUTO_INCREMENT pour la table `games`
 --
 ALTER TABLE `games`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
