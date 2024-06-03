@@ -31,6 +31,8 @@
         include 'pages/login_form.php';}
     elseif (isset($_GET['page']) && $_GET['page'] === "profil"){
         include 'pages/profil.php';}
+        elseif (isset($_GET['page']) && $_GET['page'] === "jeu" && $_GET['jeu']){
+            include 'pages/jeu.php';}
     else{
         include 'pages/accueil.php';}
     
