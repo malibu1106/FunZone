@@ -23,6 +23,7 @@ body {
     background-color: var(--bodyColor);
     color: var(--titleColor);
     transition: background-color 0.5s, color 0.5s;
+    overflow-x: hidden;
 }
 
 a {
@@ -127,7 +128,7 @@ header .logo {
 }
 
 .lateralMenuClosed {
-    left: -100%;
+    left: -150%;
 }
 
 nav.menu {
@@ -168,13 +169,10 @@ nav.menu a:hover {
 /* MAIN */
 main {
     width: 96vw;
-    max-height: calc(100vh - 160px);
     background-color: var(--bgColor);
     border: solid 1px var(--bgColor);
     position: absolute;
-    overflow-y: scroll;
     border-radius: 10px;
-    scrollbar-width: none;
     left: 0;
     right: 0;
     top: 120px;
@@ -187,7 +185,7 @@ main h1 {
     position: sticky;
     top: 0;
     margin: auto;
-    width: 100%;
+    width: 90%;
     height: 70px;
     line-height: 70px;
     background-color: var(--bgColor);
@@ -202,19 +200,27 @@ main form {
     margin: 50px auto;
 }
 
-#password_input_containeur {
+main.profile form {
+    margin: 10px auto;
+
+}
+
+.password_input_containeur,
+.password_input_containeur_edit {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-#password_input_containeur img {
+.password_input_containeur img,
+.password_input_containeur_edit img {
     width: 30px;
     height: 30px;
     cursor: pointer;
 }
 
-#password_input_containeur input {
+.password_input_containeur input,
+.password_input_containeur_edit input {
     width: 400px;
 }
 
@@ -320,17 +326,29 @@ h1 {
 .profile_avatar {
     display: flex;
     justify-content: space-around;
+
 }
 
 .avatar_buttons_container {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
+
+}
+
+.profile_avatar form {
+    width: 250px;
+}
+
+.profile_avatar input[type="file"] {
+    color: rgba(0, 0, 0, 0);
 }
 
 .avatar_image {
     border-radius: 50%;
     height: 128px;
+    width: 128px;
+    object-fit: cover;
 }
 
 

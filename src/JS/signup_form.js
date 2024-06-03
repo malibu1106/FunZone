@@ -70,6 +70,8 @@ document.getElementById('pseudo').addEventListener('input', function () {
 
 // FORCE PASSWORD SECURITY
 let passwordInputSignup = document.getElementsByClassName('passwordInputSignup')[0];
+let passwordInputSignupRetyped = document.getElementsByClassName('passwordInputSignup')[1];
+document.getElementsByClassName('password_input_containeur')[1].style.display = "none";
 const specialCharacterPattern = /[!@#$%^&*(),.?":{}|<>]/;
 const uppercasePattern = /[A-Z]/;
 let signupSubmit = document.getElementById('signup_submit');
@@ -85,24 +87,42 @@ function verifyPasswordSecurity() {
     document.getElementById('message').style.opacity = "1";
     document.getElementById('message').style.animation = "none";
 
-    if (password.length <= 8) {
+    if (password.length < 8) {
         passwordInputSignup.style.boxShadow = "inset 0px 0px 0px 5px #f00";
         document.getElementById('message').innerHTML = "Le mot de passe doit contenir au moins 8 caractères";
-        signupSubmit.style.display = "none";
+        document.getElementsByClassName('password_input_containeur')[1].style.display = "none";
 
     } else if (!specialCharacterPattern.test(password)) {
         document.getElementById('message').innerHTML = "Le mot de passe doit contenir au moins un caractère spécial";
         passwordInputSignup.style.boxShadow = "inset 0px 0px 0px 5px #f00";
-        signupSubmit.style.display = "none";
+        document.getElementsByClassName('password_input_containeur')[1].style.display = "none";
 
     } else if (!uppercasePattern.test(password)) {
         document.getElementById('message').innerHTML = "Le mot de passe doit contenir au moins une majuscule";
         passwordInputSignup.style.boxShadow = "inset 0px 0px 0px 5px #f00";
-        signupSubmit.style.display = "none";
+        document.getElementsByClassName('password_input_containeur')[1].style.display = "none";
     } else if (password.length >= 8 && specialCharacterPattern.test(password) && uppercasePattern.test(password)) {
         document.getElementById('message').innerHTML = "";
         passwordInputSignup.style.boxShadow = "inset 0px 0px 0px 5px #008000";
         document.getElementById('message').style.animation = "message 4s forwards";
+        document.getElementsByClassName('password_input_containeur')[1].style.display = "flex";
+
+    }
+}
+
+passwordInputSignupRetyped.addEventListener("keyup", verifyPasswordRetyped);
+function verifyPasswordRetyped() {
+    document.getElementById('message').style.opacity = "1";
+    document.getElementById('message').style.animation = "none";
+
+    if (passwordInputSignup.value === passwordInputSignupRetyped.value) {
         signupSubmit.style.display = "block";
+        passwordInputSignupRetyped.style.boxShadow = "inset 0px 0px 0px 5px #008000";
+        document.getElementById('message').style.animation = "message 4s forwards";
+    }
+    else {
+        signupSubmit.style.display = "none";
+        passwordInputSignupRetyped.style.boxShadow = "inset 0px 0px 0px 5px #f00";
+        document.getElementById('message').innerHTML = "Les mots de passe ne correspondent pas.";
     }
 }

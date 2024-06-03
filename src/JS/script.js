@@ -98,4 +98,37 @@ function showOrHidePassword() {
     }
 }
 
+let logoShowPasswordRetyped = document.getElementById('showPasswordImageRetyped');
+let passwordInput2 = document.getElementById('passwordRetyped');
+if (logoShowPasswordRetyped) {
+    logoShowPasswordRetyped.addEventListener("click", showOrHidePasswordRetyped)
+}
+function showOrHidePasswordRetyped() {
+    if (passwordInput2.type == "text") {
+        passwordInput2.type = "password";
+        logoShowPasswordRetyped.src = "../images/showPassword.png";
+    }
+    else {
+        passwordInput2.type = "text";
+        logoShowPasswordRetyped.src = "../images/hidePassword.png";
+    }
+}
+
+let logoShowPasswordActual = document.getElementById('showPasswordImageActual');
+let passwordInputActual = document.getElementById('actualPassword');
+if (logoShowPasswordActual) {
+    logoShowPasswordActual.addEventListener("click", showOrHidePasswordActual)
+}
+function showOrHidePasswordActual() {
+    if (passwordInputActual.type == "text") {
+        passwordInputActual.type = "password";
+        logoShowPasswordActual.src = "../images/showPassword.png";
+    }
+    else {
+        passwordInputActual.type = "text";
+        logoShowPasswordActual.src = "../images/hidePassword.png";
+    }
+}
+
+
 

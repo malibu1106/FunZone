@@ -1,4 +1,4 @@
-<main>
+<main class="accueil">
 
 <h1>Accueil</h1>
 <section class="conteneur-jeu">

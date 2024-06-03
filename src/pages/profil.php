@@ -17,7 +17,7 @@ $user = $query->fetch(PDO::FETCH_ASSOC);
 require_once("elements/close_bdd.php");
 ?>
 <main class="profile">
-    <h1>Mon profil</h1>
+    <a href="../index.php?page=profil"><h1>Mon profil</h1></a>
         <div class="profile_avatar">
 
     <?php 
@@ -28,8 +28,44 @@ if (!empty($user['avatar_filename'])) {
 }
 ?>
             <div class="avatar_buttons_container">
-                <button>Changer l'avatar</button>            
-                <button>Supprimer l'avatar</button>
+
+
+            <?php
+            if(isset($_POST['edit_avatar'])){
+                echo '<form method="POST" action="pages/edit_avatar.php" enctype="multipart/form-data">
+                <input type="hidden" id="id" name="id" value="<?php echo $id; ?>">
+                <input type="file" id="newAvatar" name="newAvatar">
+                <input id="confirm_avatar_edit" type="submit" value="Changer l\'avatar" style="color:green">
+            </form>';
+            echo '<form action="../index.php?page=profil" method="POST">
+                    <input type="submit" value="Annuler" style="color:red;">
+                    
+                    </form>';
+            
+            }
+            else{
+                echo '<form method="POST" action="../index.php?page=profil">
+                    <input type="hidden" id="edit_avatar" name="edit_avatar" value="edit_avatar">
+                    <input type="submit" value="Changer l\'avatar">
+                    </form>';
+                }
+            ?>
+                
+                
+
+
+
+                <?php
+        if (isset($_POST['delete_avatar'])){
+            include 'delete_avatar_confirmation.php';
+        }
+        elseif (!isset($_POST['delete_avatar']) && !isset($_POST['edit_avatar'])){
+            echo '<form action="index.php?page=profil" method="POST">
+            <input type="submit" value="Supprimer l\'avatar">
+            <input type="hidden" id="delete_avatar" name="delete_avatar" value="delete_avatar">
+        </form>';
+        }
+?>
             </div>
         </div>  
 
@@ -52,7 +88,7 @@ if (!empty($user['avatar_filename'])) {
             include 'pages/edit_password_form.php';
         }
         else{
-            echo '<form action="index.php?page=profil" method="POST">
+            echo '<form action="index.php?page=profil#actualPassword" method="POST">
             <input type="submit" value="Changer mot de passe">
             <input type="hidden" id="password" name="password" value="password">
             </form>';
@@ -71,7 +107,7 @@ if (!empty($user['avatar_filename'])) {
             include 'delete_account_confirmation.php';
         }
         else{
-            echo '<form action="index.php?page=profil" method="POST">
+            echo '<form action="index.php?page=profil#delete_form" method="POST">
             <input type="submit" value="Supprimer mon compte">
             <input type="hidden" id="delete" name="delete" value="delete">
         </form>';
